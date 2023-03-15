@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <link rel="stylesheet" href="calcstyle.css">
+    
+    
+</head>
+<body>
+    <div class="container">
+        <div class="calc">
+            <div class="display_work">
+                <textarea name="txt1" id="txt1" cols="30" rows="3"></textarea>
+                <input type="text" id="txt" class="input">
+                <!-- <input type="text" class="input" id="txt" value="333"> -->
+            </div>
+
+            <div class="buttons">
+            <div class="top_buttons">
+                <input type="button" value="AC" class="tb ac" onclick="display('ac')">
+                <input type="button" value="+/-" class="tb ac" onclick="change()">
+                <input type="button" value="%" class="tb ac" onclick= "display('%') " readonly/>
+                <input type="button" class="tb /" value="/" id="div" onclick= "display('/') ">
+            </div>
+            
+
+             <div class="middle_buttons1">
+                <input type="button" value="9" class="mb 9" onclick= "display('9') "/>
+                <input type="button" value="8" class="mb 8" onclick= "display('8') "/>
+                <input type="button" value="7" class="mb 9" onclick= "display('7') "/>
+                <input type="button" id="div" value="*" class="mb *" onclick= "display('*') "/>
+             </div>
+
+             <div class="middle_buttons1">
+                <input type="button" value="6" class="mb 6" onclick= "display('6') ">
+                <input type="button" value="5" class="mb 5" onclick= "display('5') ">
+                <input type="button" value="4" class="mb 4" onclick= "display('4') ">
+                <input type="button" id="div" value="-" class="mb -" onclick= "display('-') ">
+            </div>
+
+            <div class="middle_buttons1">
+                <input type="button" value="3" class="mb 9" onclick= "display('3') ">
+                <input type="button" value="2" class="mb 9" onclick= "display('2') ">
+                <input type="button" value="1" class="mb 9" onclick= "display('1') ">
+                <input type="button" id="div" value="+" class="mb 9" onclick= "display('+') ">
+            </div>
+              
+            <div class="buttom_buttons">
+                <input type="button"  id="bt" value="0" class="bb_0" onclick= "display('0') ">
+                <input type="button"  id="bt" value="." class="bb ." onclick= "display('.') ">
+                <input type="button"  id="div" value="=" class="bb =" onclick= "solve()">
+            <!-- <button class="bb_0" id="bt">0</button>
+            <button class="bb ." id="bt">.</button>
+            <button class="bb =" id="div">=</button>  -->
+            </div> 
+        
+       
+    </div>
+</body>
+<script>
+        function display(val){
+
+            // alert(val);
+            
+            if(val == 'ac'){
+                document.getElementById("txt"). value='';
+                document.getElementById("txt1"). value='';
+                
+            }else{
+                document.getElementById("txt"). value += val;
+            }
+        
+        }
+        function solve(){
+            var x= document.getElementById ("txt").value;
+             let y = eval(x);
+             document.getElementById ("txt1").innerHTML=y;
+        }
+        function change(){
+            var x= document.getElementById ("txt1").value;
+            if(x>0){
+
+            //    var y= $(x).prepend("-");
+            // var y ="-"
+            document.getElementById ("txt1").value=y;
+            }
+        }
+    </script>
+</html>

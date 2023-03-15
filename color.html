@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            display: flex;
+            flex-direction: row;
+        }
+        .square{
+            border: 1px solid;
+            height: 50px;
+            width: 50px;
+        }
+        .circle{
+            border: 1px solid;
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            position: absolute;
+            left: 30px;
+            top: 50px;
+        }
+      
+        .color{
+            border: 1px solid;
+            width: 500px;
+            height: 100px;
+
+        }
+        .Red{
+            border: 1px solid;
+            width: 60px;
+            height: 35px;
+            background: red;
+
+        }
+        .Blue{
+            border: 1px solid;
+            width: 60px;
+            height: 35px;
+            background: lightblue;
+
+        }
+        .Green{
+            border: 1px solid;
+            width: 60px;
+            height: 35px;
+            background: green;
+        }
+        .Purple{
+            border: 1px solid;
+            width: 60px;
+            height: 35px;
+            background:purple;
+        }
+        .case{
+            display: flex;
+            flex-direction: row;
+            position: fixed;
+            bottom: 5px;
+        }
+        
+    </style>
+</head>
+<body id="body">
+    <!-- <div class="main">
+        <div class="square"></div>
+        <div class="circle"></div>
+        
+    </div> -->
+    <div class="color">
+        <h4>CHANGE THE BACKROUND COLOUR </h4>
+        <input type="text" placeholder="Enter color" id="input" onkeyup="different()">
+        <div class="case"> 
+        <button type="button" class="Red" onclick="change1()" id="1" ></button>
+        <button type="button" class="Blue" onclick="change2()" id="1" ></button>
+        <button type="button" class="Green" onclick="change3()" id="1" ></button>
+        <button type="button" class="Purple" onclick="change4()" id="1"></button>
+        </div>
+        <br>
+            
+            
+    </div>
+   
+
+    <script>
+        function change1(){
+            document.getElementById('body').style='background-color:red';
+              
+        }
+        function change2(){
+            document.getElementById('body').style='background-color:lightblue';
+              
+        }
+        function change3(){
+            document.getElementById('body').style='background-color:green';
+              
+        }
+        function change4(){
+            document.getElementById('body').style='background-color:purple';
+              
+        }
+        function different(){
+            var x=document.getElementById('input').value;
+            document.getElementById('body').style='background-color:' + x;
+        }
+    </script>
+</body>
+</html>

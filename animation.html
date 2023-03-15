@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            border: 3px black solid;
+            width: 350px;
+            height: 600px;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .shadow{
+            width: 200px;
+            height: 100px;
+            background:black ;
+            position: relative;
+            top:500px;
+            left:20%;
+            border-radius: 50%;
+            animation-name: shadow;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-timing-function: cubic;
+           
+        }
+    .ball{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background:honeydew;
+        position: absolute;
+        left:20%;
+        animation-name: anime;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        
+    }
+    .box{
+        border: 1px solid black;
+        width: 50px;
+        height: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        background:tomato;
+    }
+    .first::after{
+        content: " ";
+        background:teal;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        left: 60px;
+        top: 8px;
+        border-radius: 50%;
+
+    }
+    /* .circle{
+        border: solid 1px black;
+        border-radius:50%;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        left: 50px;
+        top: 29px;
+        background:white;
+    } */
+    .first{
+        height: 200px;
+        width: 200px;
+        border: solid 1px black;
+    }
+    @keyframes anime{
+        0%{ left:20%; top:0px;}
+        50%{background:black; left:20%; top:60%}
+        100%{ left:20%; top:0px;}
+        
+    }
+    @keyframes shadow{
+      
+        
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="first">
+        <div class="circle"></div>
+        <div class="box"></div>
+    </div>
+    <div class="container">
+    <div class="ball"></div>
+    <div class="shadow"></div>
+    </div>
+</body>
+</html>

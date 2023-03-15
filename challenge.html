@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .small{
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+            /* background-color: aqua; */
+            /* position: absolute; */
+            /* margin-top: 100px ;  */
+        }
+        .small1{
+            border: 1px solid black;
+            width: 100px ;
+            height: 100px;
+            /* background-color: black; */
+            /* position: absolute; */
+            /* margin-top: 100px ;  */
+        }
+        .small2{
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+            /* background-color: rosybrown; */
+            /* position: absolute; */
+            /* margin-top: 100px ;  */
+        }
+        
+        
+        .large{
+            border: 1px solid black;
+            width: 200px ;
+            height: 100px;
+            display: inline-flex;
+            flex: content;
+            flex-direction: row;
+            /* margin-left: 500px ;  */
+            /* margin-top: 300px ;  */
+        }
+        .dropbox{
+            position: relative;
+            border: 1px solid black;
+            width: 300px;
+            height: 300px;
+            margin-left: 200px;
+            /* padding-top: 20px;
+            padding-left: 20px; */
+            /* align-items: center; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="small ss" id='drag' draggable="true" ondragstart="drag(this)" ><img src="politics1.jpeg" alt="" style="height: 98px; width: 98px;"></div>
+    <div class="small1 ss" id='drag1' draggable="true" ondragstart="drag(this)"><img src="politics3.jpeg" alt=""style="height: 98px; width: 98px;"></div>
+    <div class="small2 ss" id='drag2' draggable="true" ondragstart="drag(this)"><img src="politics3.jpeg" alt="" style="height: 98px; width: 98px;"></div>
+    </div>
+    <p style="display: none" id="hidden"></p>
+    <div class="dropbox">
+        <h4>Pictures collage</h4>
+    <div class="large" ></div>
+    </div>
+</body>
+<script>
+    //  var element=document.getElementsByClassName('ss');
+    // // console.log(element);
+    // for (let i = 0; i < element.length; i++) {
+
+    //     element[i].addEventListener('dragstart', drag)
+        
+    // }
+function drag(e){
+    console.log(e);
+    document.getElementById('hidden').value= e
+    console.log()  
+}
+
+var boxs=document.querySelector('.large');
+
+boxs.addEventListener('dragenter', dragEnter);
+boxs.addEventListener('dragover', dragover);
+boxs.addEventListener('dragleave', dragLeave);
+boxs.addEventListener('drop', drop);
+
+function dragEnter(e){
+    e.preventDefault();
+    
+    console.log('entered')
+}
+function dragover(e){
+    e.preventDefault();
+    console.log('over')
+}
+function dragLeave(e){
+    e.preventDefault();
+    console.log('leave')
+}
+function drop(ev){
+    var data=document.getElementById('hidden').value
+    boxs.appendChild(data);
+    // console.log('drop')
+}
+// function sum(a , b){
+//     a=prompt('Enter first value');
+//     b=prompt('Enter second value'); 
+//     var aa=parseInt(a);
+//     var bb=parseInt(b);
+//     // alert(typeof(aa));
+//     var sumation=aa+bb;
+// alert(`The sum is ${sumation}`);
+// }
+// type();
+
+// valuess();
+
+// function valuess(){
+// var word = prompt('Enter the string');
+// if (word.length >= 3){
+//     var neww = word.slice(0,3);
+//     alert(`The first three are ${neww}`)
+
+// }else(
+//     alert(`The word is less than 3 characters`)
+// )}
+
+// function compare(a , b){
+//     a=prompt('Enter first value');
+//     b=prompt('Enter second value'); 
+//     if(a==b){
+//      alert('true')
+//     }else(
+//         alert('different')
+//     )
+    
+// }
+
+// function type(a){
+//    a=prompt('check the value type');
+//    console.log(typeof(a)) 
+// }
+
+// var one=[1,2,3];
+// var two=['teeth','oracode'];
+// var x=6;
+
+// function merging(onee , twoo){
+//     let final=[];
+//     for (let index = 0; index < twoo.length; index++) {
+//         var check =onee.indexOf(twoo[index]);
+//         if(check== -1){
+//             onee.push(twoo[index]);
+//         }  
+
+// }
+// console.log(onee);
+// } 
+// mutate(one , x);
+
+// function mutate(a , b){
+//    if(b >= 6){
+//     a.unshift(b)
+//    }else{
+//     a.unshift(0)  
+//    }
+//    console.log(a)
+// }
+</script>
+</html>
+

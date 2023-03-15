@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       let pin=['1234','5678','0000'];
+       let Balance=['1000','500','400'];
+       let accounts=['steve','Glorious','Charity'];
+       let accnum=['00000','11111','22222']
+       
+
+       atmfun();
+       function atmfun(){
+
+     alert('Welcome to Oracode Bank');
+     var data= prompt('Enter your Pin');
+     var check =pin.indexOf(data);
+     if(check==-1){
+          alert("This user does not exist")
+          atmfun();
+      }else{
+          atmcode();
+          
+      }
+
+     function atmcode(){
+          var names = accounts[check];
+        var choice= prompt('Welcome '+ names +' what can we do for you?\n1.withdrawal\n2.transfer\n3.Change Pin\n4.Change Username\n5.Check Balance\n6.Create Account\n7.Exit/logout')
+        if(choice==1){
+
+            withdrawal();
+            function withdrawal(){
+            var mybalance= Balance[check];
+            var amount= prompt('How much would you Like to Withdraw');
+            if(amount>mybalance){
+                alert("insufficient funds");
+                anothert();
+            }else{
+            var checked= amount % 1000;
+            if(checked==0){
+                Balance[check]=Balance[check] - amount;
+                alert('Collect your cool cash');
+                anothert();
+            }else{
+                var size=prompt('withdrawal only in multiples of 1000\n1.withdrawal\n2.Perform another transaction');
+                if(size==1){
+                withdrawal();}if(size==2){atmfun()} 
+            }
+        }
+    }
+        }
+        if(choice==2){
+            var amount= prompt('How much would you Like to Transfer');
+            var amount2= prompt('Destination Account');
+            var amount3= prompt('Destination Bank\n1.Access Bank\n2.Diamond Bank\n3.First Bank\n4.GTB\n5.Oracode bank\n6.UBA');
+            var position= accnum.indexOf(amount2);
+            fun();
+            function fun(){
+            if(position==-1){
+                alert('Account number Not correct');
+                var des= prompt('1.Enter account number\n2.Exit')
+                if(des=1){
+                    var amount2= prompt('Destination Account'); 
+                    var position= accnum.indexOf(amount2);
+                    fun();
+                }else{var position= accnum.indexOf(amount2);}
+
+            }else{
+             var position= accnum.indexOf(amount2);
+            Balance[position]=Balance[position] + amount; 
+            Balance[check]=Balance[check] - amount;
+            alert('Transaction successful')
+            anothert();
+        }
+         }
+    }
+        if(choice==3){
+          var newp = prompt('Enter new pin');
+          var confirmit =prompt('confirm new pin');
+          if(newp==confirmit){
+              pin[check]=newp;
+              alert('Pin has been Changed');
+              anothert(); 
+          }else{
+              alert('Pins do not match !!!')
+            anothert();
+          }  
+        }
+        if(choice==4){
+            var newname= prompt('Enter new Username');
+            accounts[check]=newname;
+            anothert();
+           
+        }
+        if(choice==5){
+            var acc= Balance[check];
+            alert('Your account Balance is '+acc);
+            anothert();
+        }
+        if(choice==6){
+            prompt('Enter Phone Number');
+            prompt('Enter your mail');
+            prompt('Enter your name');
+            prompt('Enter Next of Kin Name');
+            alert('Your account details ');
+        }
+        if(choice==7){
+            anothert();
+        }
+      }
+       
+
+      function anothert(){
+           var newt= prompt('Do you want to perform another transaction\n1.Yes\n2.No');
+           if(newt==1){
+             atmcode();
+           }
+           if(newt==2){
+            alert('Thank you for using Oraconnect Bank');
+               atmfun();
+           }
+       }
+    //   alert(check);
+   
+      
+    }
+       
+    </script>
+</body>
+</html>
